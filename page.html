@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>janelle's page</title>
+
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $(".name").css("font-size", "300%");
+                setTimeout(function() {
+                    $(".name").css("font-size","170%");
+                }, 3000);
+                setTimeout(function() {
+                    $(".name").css("color","green");
+                }, 6000);
+                setTimeout(function() {
+                    $(".photo").css("border", "8px solid green")
+                }, 9000);
+            });
+        });
+    </script>
 </head>
 <body>
-  <h1> Janelle's Page </h1>
+  <h1 class="name"> Janelle's Page </h1>
 
-  <img src="photo.png" alt="photo">
+  <img src="photo.png" alt="photo" class="photo">
   <p>
       My name is Janelle Kwofie and I have been a student at this college for the
       past 6 years. I went to SDSU where I got a degree in Computer Science.
@@ -23,22 +41,22 @@
   <h2> Technologies for this class </h2>
 
   <ul class="technology">
-          <li> HTML </li>
-          <li> CSS </li>
-          <li> JavaScript </li>
+          <li> HTML <li/>
+          <li> CSS <li/>
+          <li> JavaScript <li/>
   </ul>
 
   <h2> Resources </h2>
 
   <ul class="resources">
-      <li><a href="https://www.w3schools.com/html/default.asp">w3schools</a> </li>
+      <li><a href="https://www.w3schools.com/html/default.asp">w3schools</a> <li/>
       <li>This website would be good for someone who wants to understand the fundamentals
       fast. It has great references for someone's to check..</li>
-      <li><a href="https://www.geeksforgeeks.org/html/html-tutorial/">geeksforgeeks</a> </li>
+      <li><a href="https://www.geeksforgeeks.org/html/html-tutorial/">geeksforgeeks</a> <li/>
       <li>This website would be good for someone who wants to understand the fundamentals
-          step by step. This website has different sections that outline how to start using HTML from the ground up.</li>
+          fast. It has great references for someone's to check.</li>
   </ul>
+
+    <button> play animations </button>
 </body>
 </html>
-
-
