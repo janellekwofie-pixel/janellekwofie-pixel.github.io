@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+    <meta name=
+        "apple-mobile-web-app-status-bar" 
+        content="#aa7700">
+    <meta name="theme-color"
+        content="black">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <title>Homework Four</title>
+
+</head>
+<body>
+    <div class="fullHeader">
+        <div id="header">
+            <img src="images/black.jpg" id="imgHeader" style="width:900px;height:100px;"/>
+            <div class="textHeader">
+                <p>Homework Four</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="dropdown">
+        <button class="dropbtn">Choose Background</button>
+        <div class="dropdown-content">
+            <div id="blue" onclick="changeBackground('blue')">blue</div>
+            <div id="gold" onclick="changeBackground('gold')">gold</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeBackground(color) {
+        if (color === 'gold'){
+            document.getElementById('imgHeader').src = "images/lightgold.jpg";
+        } else {
+            document.getElementById('imgHeader').src = "images/lightblue.jpg";
+        }
+    }
+</script>
+
+<h2 class="subtitle"> PWA </h2>
+
+<p>
+    Progressive Web Applications, PWAs, are a website application that aims to give each user a similar experience.
+    One way this is accomplished is by the responsive design to each different type of device or browser.
+    Another capability is that PWAs have progressive enhancement that means that newer devices benefit from the
+    additional enhancements overtime as the application progresses. This still allows all users to have access while
+    allowing the opportunity to improve with technology and gain additional features.
+</p> <br>
+    <p>
+    Additionally, PWAs are available offline using service workers that cache the users content. Similarly,
+    the web application aims to provide an experience that is similar to an application. This means being available,
+    consistent, smooth, and fast in its interactions with the users. Some features that PWAs and apps both have are
+    push notifications, updates, and offline availability. Ultimately PWAs are important for closing the gap between
+    web and native.
+</p>
+</body>
+</html>
