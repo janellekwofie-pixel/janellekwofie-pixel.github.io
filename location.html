@@ -26,40 +26,41 @@
 <body>
 <h1>Location Finder</h1>
 
-<button id="location">Locate me!</button>
+<button id="locate-me">Locate Me!</button>
+<br/>
 <p id="status"></p>
-<a id="ml" target="_blank"></a>
+<a id="map-link" target="_blank"></a>
 
 <script>
     function locateMe() {
         const status = document.querySelector("#status");
-        const ml = document.querySelector("#ml");
+        const mapLink = document.querySelector("#map-link");
 
-        ml.href = "";
-        ml.textContent = "";
+        mapLink.href = "";
+        mapLink.textContent = "";
 
         function success(position) {
             const lat = position.coords.latitude;
             const long = position.coords.longitude;
 
             status.textContent = "";
-            ml.href = `https://www.openstreetmap.org/#map=18/${lat}/${long}`;
-            ml.textContent = `You are currently at: ${lat} °,: ${long} °`;
+            mapLink.href = `https://www.openstreetmap.org/#map=18/${lat}/${long}`;
+            mapLink.textContent = `You are at : ${lat} °,  ${long} °!`;
+        }
 
-            function error() {
-                status.textContent = "Unable to retrieve your location";
-            }
+        function error() {
+            status.textContent = "Cannot get your location, sorry :(";
+        }
 
-            if (!navigator.geolocation) {
-                status.textContent = "Geolocation is not supported by your browser";
-            } else {
-                status.textContent = "Locating…";
-                navigator.geolocation.getCurrentPosition(success, error);
-            }
+        if (!navigator.geolocation) {
+            status.textContent = "Invalid Browser!";
+        } else {
+            status.textContent = "Getting Location…";
+            navigator.geolocation.getCurrentPosition(success, error);
         }
     }
 
-    document.querySelector("#location").addEventListener("click", locateMe);
+    document.querySelector("#locate-me").addEventListener("click", locateMe);
 </script>
 </body>
 </html>
