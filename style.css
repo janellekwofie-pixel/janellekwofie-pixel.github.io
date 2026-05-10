@@ -1,0 +1,19 @@
+ul {
+    background-color: #69a8e7;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    display: block;
+    color: white;
+}
