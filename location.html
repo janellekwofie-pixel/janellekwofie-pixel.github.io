@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="ABC Toys with great toys for all age groups">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="product.html">Product</a></li>
@@ -22,10 +26,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
     </script>
+    <style>
+        #userLocation {
+            width: 90%;
+            height: 420px;
+            margin: 10px auto;
+        }
+    </style>
 </head>
 <body>
 <h1>Location Finder</h1>
 
+<div id="userLocation"></div>
 <button id="locate-me">Locate Me!</button>
 <br/>
 <p id="status"></p>
@@ -61,6 +73,28 @@
     }
 
     document.querySelector("#locate-me").addEventListener("click", locateMe);
+
+    const map = L.map("userLocation");
+    map.setView([0, 0], 10);
+
+    const marker = L.marker([0, 0]).addTo(map);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {attribution: "OpenStreetMap contributors",}).addTo(map);
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+                const mapLat = position.coords.latitude;
+                const mapLong = position.coords.longitude;
+
+                marker.setLatLng([mapLat, mapLong]);
+                map.setView([mapLat, mapLong], 10);
+            },
+            (error) => {
+                console.error(`Cannot get your location, sorry :(   : ${error.message}`);
+            });
+    } else {
+        console.error("Invalid Browser!");
+    }
 </script>
 </body>
 </html>
