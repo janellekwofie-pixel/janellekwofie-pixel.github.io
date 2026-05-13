@@ -1,1 +1,0 @@
-# janellekwofie-pixel.github.io
